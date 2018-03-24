@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>splunk</Name>
+  <Repository>splunk/splunk:latest</Repository>
+  <Registry>https://hub.docker.com/r/splunk/splunk/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>samarelo's Splunk template.&#xD;
+&#xD;
+This template pulls the latest splunk version from https://hub.docker.com/r/splunk/splunk/&#xD;
+All other configuration options are setup in this template&#xD;
+&#xD;
+Volumes:&#xD;
+Container Path: /opt/splunk/var&#xD;
+Container Path: /opt/splunk/etc&#xD;
+&#xD;
+Mapped Ports:&#xD;
+Container Port: 1514&#xD;
+Container Port: 8000&#xD;
+Container Port: 8089&#xD;
+Container Port: 9997&#xD;
+&#xD;
+&#xD;
+Extra Parameters:&#xD;
+-e "SPLUNK_START_ARGS=--accept-license --answer-yes" -e "OPTIMISTIC_ABOUT_FILE_LOCKING=1"&#xD;
+&#xD;
+SPLUNK_START_ARGS:&#xD;
+--accept-license    to accept license agreement&#xD;
+--answer-yes         to agree to updating configuration files on upgrade&#xD;
+OPTIMISTIC_ABOUT_FILE_LOCKING=1      to correct warnings related to database validation</Overview>
+  <Category>Network:Management</Category>
+  <WebUI>http://[IP]:[PORT:8000]/</WebUI>
+  <TemplateURL>https://github.com/samarelo/unraid-docker-templates</TemplateURL>
+  <Icon>http://i.imgur.com/KKoQMo6.png</Icon>
+  <ExtraParams>-e "SPLUNK_START_ARGS=--accept-license --answer-yes" -e "OPTIMISTIC_ABOUT_FILE_LOCKING=1"</ExtraParams>
+  <PostArgs/>
+  <DateInstalled>1521892302</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <DonateImg/>
+  <MinVer/>
+  <Description>samarelo's Splunk template.&#xD;
+&#xD;
+This template pulls the latest splunk version from https://hub.docker.com/r/splunk/splunk/&#xD;
+All other configuration options are setup in this template&#xD;
+&#xD;
+Volumes:&#xD;
+Container Path: /opt/splunk/var&#xD;
+Container Path: /opt/splunk/etc&#xD;
+&#xD;
+Mapped Ports:&#xD;
+Container Port: 1514&#xD;
+Container Port: 8000&#xD;
+Container Port: 8089&#xD;
+Container Port: 9997&#xD;
+&#xD;
+&#xD;
+Extra Parameters:&#xD;
+-e "SPLUNK_START_ARGS=--accept-license --answer-yes" -e "OPTIMISTIC_ABOUT_FILE_LOCKING=1"&#xD;
+&#xD;
+SPLUNK_START_ARGS:&#xD;
+--accept-license    to accept license agreement&#xD;
+--answer-yes         to agree to updating configuration files on upgrade&#xD;
+OPTIMISTIC_ABOUT_FILE_LOCKING=1      to correct warnings related to database validation</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>1514</HostPort>
+        <ContainerPort>1514</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8089</HostPort>
+        <ContainerPort>8089</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>9997</HostPort>
+        <ContainerPort>9997</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/splunk/var</HostDir>
+      <ContainerDir>/opt/splunk/var</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/splunk/etc/</HostDir>
+      <ContainerDir>/opt/splunk/etc</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Config Name="Host Path 1" Target="/opt/splunk/var" Default="/mnt/user/appdata/splunk" Mode="rw" Description="Container Path: /opt/splunk/var" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/splunk/var</Config>
+  <Config Name="Host Path 2" Target="/opt/splunk/etc" Default="/mnt/user/appdata/splunk/etc/" Mode="rw" Description="Container Path: /opt/splunk/etc" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/splunk/etc/</Config>
+  <Config Name="Host Port 1" Target="1514" Default="1514" Mode="udp" Description="Container Port: 1514" Type="Port" Display="always" Required="true" Mask="false">1514</Config>
+  <Config Name="Host Port 2" Target="8089" Default="8089" Mode="tcp" Description="Container Port: 8089" Type="Port" Display="always" Required="true" Mask="false">8089</Config>
+  <Config Name="Host Port 3" Target="9997" Default="9997" Mode="tcp" Description="Container Port: 9997" Type="Port" Display="always" Required="true" Mask="false">9997</Config>
+  <Config Name="Host Port 4" Target="8000" Default="8000" Mode="tcp" Description="Container Port: 8000" Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+</Container>
